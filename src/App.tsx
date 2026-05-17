@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-import heroImg from './assets/hero.png'
 import './App.css'
 
 // Types for Portfolio Data
