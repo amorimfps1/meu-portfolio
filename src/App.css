@@ -143,12 +143,32 @@
 
 /* Hero Section (Centered & Minimal) */
 .hero-section {
-  padding-top: 140px;
-  padding-bottom: 60px;
+  padding-top: 160px;
+  padding-bottom: 80px;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.hero-avatar-wrapper {
+  margin-bottom: 28px;
+}
+
+.hero-avatar {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  border: 3px solid var(--primary-color);
+  object-fit: cover;
+  box-shadow: var(--shadow-lg);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-avatar:hover {
+  transform: scale(1.04);
+  border-color: var(--primary-color);
+  box-shadow: 0 0 25px var(--primary-color), var(--shadow-lg);
 }
 
 .hero-badge {
@@ -162,15 +182,15 @@
   font-size: 12px;
   font-weight: 500;
   border-radius: var(--radius-sm);
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 }
 
 .hero-title {
-  font-size: 48px;
+  font-size: 54px;
   font-weight: 800;
-  line-height: 1.2;
-  letter-spacing: -1px;
-  margin-bottom: 12px;
+  line-height: 1.15;
+  letter-spacing: -1.5px;
+  margin-bottom: 16px;
   color: var(--text-primary);
 }
 
@@ -179,18 +199,18 @@
 }
 
 .hero-subtitle {
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 500;
   color: var(--text-secondary);
-  margin-bottom: 20px;
-  min-height: 30px;
+  margin-bottom: 24px;
+  min-height: 34px;
 }
 
 .hero-description {
-  font-size: 15px;
+  font-size: 16px;
   color: var(--text-secondary);
-  margin-bottom: 30px;
-  max-width: 680px;
+  margin-bottom: 36px;
+  max-width: 740px;
   line-height: 1.6;
 }
 
@@ -198,7 +218,24 @@
   display: flex;
   gap: 12px;
   justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
+}
+
+.hero-social-links {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-left: 8px;
+}
+
+@media (max-width: 768px) {
+  .hero-social-links {
+    margin-left: 0;
+    margin-top: 8px;
+    width: 100%;
+    justify-content: center;
+  }
 }
 
 /* Stats Section (Minimal Monospace Columns) */
