@@ -5,43 +5,49 @@
   --font-sans: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 
-  /* Theme Defaults (Obsidian Flat Minimal & Tactical Red) */
-  --bg-color: #0a0a0c;
-  --bg-grid: rgba(255, 255, 255, 0.007);
-  --bg-card: #121215;
-  --bg-card-hover: #16161a;
-  --border-color: #222226;
-  --border-color-hover: var(--primary-color, #ef4444);
-  --text-primary: #f5f5f7;
-  --text-secondary: #94a3b8;
-  --text-muted: #475569;
-  --input-bg: #16161a;
-  --scrollbar-thumb: #222226;
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
-  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.5);
-  --shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.6);
+  /* Theme Defaults (Minimal Neutrals) */
+  --bg-color-rgb: 5, 5, 5;
+  --bg-color: #050505;
+  --bg-grid: rgba(255, 255, 255, 0.01);
+  --bg-card: #111112;
+  --bg-card-hover: #18181b;
+  --border-color: rgba(255, 255, 255, 0.1);
+  --border-color-hover: rgba(255, 255, 255, 0.18);
+  --primary-color: #f7f7f7;
+  --primary-dark: #d1d5db;
+  --text-primary: #f7f7f7;
+  --text-secondary: #c7c7c7;
+  --text-muted: #8f8f8f;
+  --input-bg: #131315;
+  --scrollbar-thumb: rgba(255, 255, 255, 0.16);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.24);
+  --shadow-md: 0 12px 30px rgba(0, 0, 0, 0.22);
+  --shadow-lg: 0 20px 48px rgba(0, 0, 0, 0.22);
   --glow-intensity: 0;
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-lg: 12px;
+  --radius-sm: 12px;
+  --radius-md: 22px;
+  --radius-lg: 32px;
 }
 
 /* Light Mode Override (High-Contrast Minimalist Light) */
 .light-theme {
+  --bg-color-rgb: 248, 250, 252;
   --bg-color: #f8fafc;
-  --bg-grid: rgba(0, 0, 0, 0.005);
+  --bg-grid: rgba(15, 23, 42, 0.02);
   --bg-card: #ffffff;
-  --bg-card-hover: #f1f5f9;
-  --border-color: #e2e8f0;
-  --border-color-hover: var(--primary-color, #ef4444);
-  --text-primary: #0f172a;
+  --bg-card-hover: #eff2f7;
+  --border-color: rgba(15, 23, 42, 0.08);
+  --border-color-hover: rgba(15, 23, 42, 0.16);
+  --primary-color: #111827;
+  --primary-dark: #475569;
+  --text-primary: #111827;
   --text-secondary: #475569;
-  --text-muted: #94a3b8;
-  --input-bg: #f1f5f9;
-  --scrollbar-thumb: #cbd5e1;
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+  --text-muted: #6b7280;
+  --input-bg: #ffffff;
+  --scrollbar-thumb: rgba(15, 23, 42, 0.18);
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.08);
   --glow-intensity: 0;
 }
 
@@ -60,11 +66,7 @@ body {
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: 
-    linear-gradient(var(--bg-grid) 1px, transparent 1px),
-    linear-gradient(90deg, var(--bg-grid) 1px, transparent 1px);
-  background-size: 30px 30px;
-  background-position: center;
+  background-color: var(--bg-color);
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -125,11 +127,11 @@ button, input, textarea {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: var(--primary-color);
-  color: #ffffff;
-  padding: 10px 20px;
+  background: var(--text-primary);
+  color: var(--bg-color);
+  padding: 12px 24px;
   border-radius: var(--radius-md);
-  font-weight: 500;
+  font-weight: 600;
   font-size: 14px;
   border: none;
   cursor: pointer;
@@ -138,7 +140,7 @@ button, input, textarea {
 }
 
 .btn-primary:hover {
-  background: var(--primary-dark);
+  opacity: 0.95;
   transform: translateY(-1px);
   box-shadow: var(--shadow-md);
 }
@@ -149,9 +151,9 @@ button, input, textarea {
   gap: 8px;
   background: transparent;
   color: var(--text-primary);
-  padding: 9px 19px;
+  padding: 12px 24px;
   border-radius: var(--radius-md);
-  font-weight: 500;
+  font-weight: 600;
   font-size: 14px;
   border: 1px solid var(--border-color);
   cursor: pointer;
@@ -159,11 +161,11 @@ button, input, textarea {
 }
 
 .btn-secondary:hover {
-  border-color: var(--text-primary);
-  background: rgba(255, 255, 255, 0.03);
+  border-color: var(--border-color-hover);
+  background: rgba(255, 255, 255, 0.05);
   transform: translateY(-1px);
 }
 
 .light-theme .btn-secondary:hover {
-  background: rgba(0, 0, 0, 0.02);
+  background: rgba(0, 0, 0, 0.04);
 }
