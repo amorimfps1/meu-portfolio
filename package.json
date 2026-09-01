@@ -2,6 +2,7 @@
   "name": "meu-portfolio",
   "private": true,
   "version": "0.0.0",
+  "homepage": "https://amorimfps1.github.io/meu-portfolio/",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -12,6 +13,7 @@
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
+    "lucide-react": "^1.38.0",
     "react": "^19.2.6",
     "react-dom": "^19.2.6"
   },
