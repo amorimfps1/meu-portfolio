@@ -1,71 +1,38 @@
+/* ==========================================================================
+   INDEX.CSS — João Gabriel Dantas Amorim | Portfolio 2026
+   Type:  IBM Plex Sans (body) · IBM Plex Mono (code / labels)
+   ========================================================================== */
+
+/* ——— Tokens ——— */
 :root {
-  /* Typography */
-  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
+  --font-sans: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'IBM Plex Mono', 'Courier New', monospace;
 
-  /* Theme Defaults - Refined Dark Engine (Slate & Emerald accents) */
-  --bg-main: #0b0f17;
-  --bg-surface: #111726;
-  --bg-surface-elevated: #182238;
-  --bg-surface-hover: #1e2b45;
-  --bg-subtle: rgba(255, 255, 255, 0.03);
-  
-  --border-subtle: rgba(255, 255, 255, 0.08);
-  --border-medium: rgba(255, 255, 255, 0.14);
-  --border-focus: #3b82f6;
+  /* Dark (default) */
+  --bg:         #0a0a0a;
+  --bg-sub:     #111111;
+  --border:     rgba(255, 255, 255, 0.08);
+  --border-mid: rgba(255, 255, 255, 0.14);
 
-  --text-main: #f8fafc;
-  --text-secondary: #94a3b8;
-  --text-muted: #64748b;
+  --text-hi:   #f0f0f0;
+  --text-body: #888;
+  --text-dim:  #444;
 
-  --accent-primary: #38bdf8;
-  --accent-primary-hover: #0ea5e9;
-  --accent-primary-subtle: rgba(56, 189, 248, 0.12);
-  --accent-emerald: #10b981;
-  --accent-emerald-subtle: rgba(16, 185, 129, 0.12);
-  --accent-indigo: #818cf8;
-
-  --card-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.5), 0 2px 6px -1px rgba(0, 0, 0, 0.4);
-  --card-shadow-hover: 0 16px 32px -4px rgba(0, 0, 0, 0.6), 0 6px 12px -2px rgba(56, 189, 248, 0.08);
-  --glass-bg: rgba(17, 23, 38, 0.75);
-  --glass-border: rgba(255, 255, 255, 0.09);
-
-  --radius-xs: 6px;
-  --radius-sm: 8px;
-  --radius-md: 12px;
-  --radius-lg: 16px;
-  --radius-xl: 24px;
+  --accent: #f0f0f0; /* structural accent is purely typographic — no color gimmick */
 }
 
-/* Refined Light Theme - Clean Editorial Slate */
-.light-theme {
-  --bg-main: #f8fafc;
-  --bg-surface: #ffffff;
-  --bg-surface-elevated: #f1f5f9;
-  --bg-surface-hover: #e2e8f0;
-  --bg-subtle: rgba(15, 23, 42, 0.03);
+[data-theme='light'] {
+  --bg:         #fafafa;
+  --bg-sub:     #f2f2f2;
+  --border:     rgba(0, 0, 0, 0.08);
+  --border-mid: rgba(0, 0, 0, 0.14);
 
-  --border-subtle: rgba(15, 23, 42, 0.08);
-  --border-medium: rgba(15, 23, 42, 0.15);
-  --border-focus: #2563eb;
-
-  --text-main: #0f172a;
-  --text-secondary: #475569;
-  --text-muted: #64748b;
-
-  --accent-primary: #0284c7;
-  --accent-primary-hover: #0369a1;
-  --accent-primary-subtle: rgba(2, 132, 199, 0.1);
-  --accent-emerald: #059669;
-  --accent-emerald-subtle: rgba(5, 150, 105, 0.1);
-  --accent-indigo: #4f46e5;
-
-  --card-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.06), 0 2px 6px -1px rgba(15, 23, 42, 0.04);
-  --card-shadow-hover: 0 16px 32px -4px rgba(15, 23, 42, 0.1), 0 6px 12px -2px rgba(2, 132, 199, 0.06);
-  --glass-bg: rgba(255, 255, 255, 0.85);
-  --glass-border: rgba(15, 23, 42, 0.08);
+  --text-hi:   #0a0a0a;
+  --text-body: #555;
+  --text-dim:  #aaa;
 }
 
+/* ——— Reset ——— */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -74,67 +41,23 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 80px;
+  scroll-padding-top: 56px;
 }
 
 body {
   font-family: var(--font-sans);
-  background-color: var(--bg-main);
-  color: var(--text-main);
+  font-size: 15px;
   line-height: 1.6;
-  overflow-x: hidden;
+  background-color: var(--bg);
+  color: var(--text-body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-/* Background Atmosphere Grid */
-.bg-grid-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  pointer-events: none;
-  z-index: 0;
-  background-image: 
-    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(56, 189, 248, 0.08), transparent 70%),
-    linear-gradient(to right, var(--border-subtle) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--border-subtle) 1px, transparent 1px);
-  background-size: 100% 100%, 48px 48px, 48px 48px;
-  background-position: 0 0, -1px -1px, -1px -1px;
-  opacity: 0.65;
-  mask-image: radial-gradient(ellipse 80% 80% at 50% 30%, #000 30%, transparent 80%);
-  -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 30%, #000 30%, transparent 80%);
-}
-
-.light-theme .bg-grid-overlay {
-  background-image: 
-    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(2, 132, 199, 0.07), transparent 70%),
-    linear-gradient(to right, rgba(15, 23, 42, 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(15, 23, 42, 0.04) 1px, transparent 1px);
-  opacity: 0.8;
-}
-
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
-::-webkit-scrollbar-track {
-  background: var(--bg-main);
-}
-::-webkit-scrollbar-thumb {
-  background: var(--border-medium);
-  border-radius: 4px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: var(--text-muted);
+  overflow-x: hidden;
 }
 
 a {
   color: inherit;
   text-decoration: none;
-  transition: all 0.2s ease;
 }
 
 button {
@@ -144,18 +67,35 @@ button {
   background: none;
 }
 
-/* Global Container */
+/* ——— Container ——— */
 .container {
   width: 100%;
-  max-width: 1120px;
+  max-width: 900px;
   margin: 0 auto;
-  padding: 0 24px;
-  position: relative;
-  z-index: 1;
+  padding: 0 32px;
 }
 
-/* Selection Highlight */
+/* ——— Focus ——— */
+:focus-visible {
+  outline: 1px solid var(--text-hi);
+  outline-offset: 3px;
+}
+
+/* ——— Selection ——— */
 ::selection {
-  background-color: var(--accent-primary-subtle);
-  color: var(--accent-primary);
+  background: var(--text-hi);
+  color: var(--bg);
+}
+
+/* ——— Reduced motion ——— */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ——— Mobile ——— */
+@media (max-width: 680px) {
+  .container { padding: 0 20px; }
 }
